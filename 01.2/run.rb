@@ -1,5 +1,5 @@
 # Source: https://adventofcode.com/2024/day/1#part2
-
+# Implements the solution for problem 2 of day 1 of the adventscode of 2024
 class Day01Problem2
   def initialize(file_path = 'input.txt')
     build_lists(file_path)
@@ -18,13 +18,14 @@ class Day01Problem2
     @left_list = []
     @right_list = []
     File.foreach(file_path) do |line|
-      line_values = line.split(' ')
+      line_values = line.split
       @left_list << line_values[0].to_i
       @right_list << line_values[1].to_i
     end
   end
 
   # Complexity O(n)
+  # The same cound be done by simply: list.tally
   def count_occurrences(list)
     hsh = {}
     list.each do |number|
