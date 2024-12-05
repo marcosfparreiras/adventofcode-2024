@@ -32,11 +32,9 @@ class Day01Problem1
 
   # Complexity O(n)
   def calculate_distance
-    distance = 0
-    @left_list.each_with_index do |left_number, index|
-      distance += (@right_list[index] - left_number).abs
+    @left_list.each_with_index.inject(0) do |distance, (left_number, index)|
+      distance + (@right_list[index] - left_number).abs
     end
-    distance
   end
 end
 
