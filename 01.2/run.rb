@@ -27,22 +27,18 @@ class Day01Problem2
   # Complexity O(n)
   # The same cound be done by simply: list.tally
   def count_occurrences(list)
-    hsh = {}
-    list.each do |number|
+    list.each_with_object({}) do |number, hsh|
       hsh[number] ||= 0
       hsh[number] = hsh[number] + 1
     end
-    hsh
   end
 
   # Complexity O(n)
   def calculate_similarity_score(left_list, right_list_occurrences)
-    similarity_score = 0
-    left_list.each do |left_number|
+    left_list.reduce(0) do |sum, left_number|
       occurrences = right_list_occurrences[left_number] || 0
-      similarity_score += left_number * occurrences
+      sum + (left_number * occurrences)
     end
-    similarity_score
   end
 end
 
