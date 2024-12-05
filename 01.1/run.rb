@@ -5,6 +5,7 @@ class Day01Problem1
     build_lists(file_path)
   end
 
+  # Overall complexity: O(n logn)
   def solve
     sort_lists!
     calculate_distance
@@ -12,6 +13,7 @@ class Day01Problem1
 
   private
 
+  # Complexity O(n)
   def build_lists(file_path)
     @left_list = []
     @right_list = []
@@ -22,11 +24,13 @@ class Day01Problem1
     end
   end
 
+  # Complexity O(n logn)
   def sort_lists!
     @right_list.sort!
     @left_list.sort!
   end
 
+  # Complexity O(n)
   def calculate_distance
     distance = 0
     @left_list.each_with_index do |left_number, index|
